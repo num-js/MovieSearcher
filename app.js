@@ -31,7 +31,6 @@ app.get('/movies', (req, res)=> {
 
         var data = JSON.parse(body);
 
-        // console.log(data);
         res.render('movies', {data: data, searchQuery: query});
     });
 
