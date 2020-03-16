@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #0cbaba; 
+    background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+
+    background-size: 400% 400%;    
+    animation: bgchange 15s linear infinite;
+}
+
+
+#trendings, #searchedMovies{
+    background-color: #7ee8fa;
+    background-image: linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
+
+    background-size: 400% 400%;    
+    animation: bgchange 15s linear infinite;
+}
+
+#searchBox{
+    padding: 10px; 
+
+    background-color: #7ee8fa;
+    background-image: linear-gradient(65deg, #7ee8fa 0%, #80ff72 74%);
+
+    background-size: 400% 400%; 
+    animation: bgchange 15s linear infinite;
+}
+
+@keyframes bgchange{
+      0%{
+          background-position: 0% 50%;
+      }
+      25%{
+          background-position: 50% 50%;
+      }
+      50%{
+          background-position: 100% 50%;
+      }
+      75%{
+          background-position: 75% 50%;
+      }
+      100%{
+          background-position: 0% 50%;
+      }
+}
+

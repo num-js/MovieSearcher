@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Searcher</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/mdnmnahmed/portfolio/master/images/nlogo.jpg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Akronim&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+<body>
+    <div class="bg-dark">
+        <h2 class="text-center" style="font-family: 'akronim', cursive; cursor: pointer; color: white;">
+            <a href="/" class="btn btn-light float-right"><i class="fa fa-sm fa-home" aria-hidden="true"></i></a>
+            Movie <i class="fa fa-sm fa-film" aria-hidden="true"></i> Searcher
+        </h2>
+    </div>
+    <br>
+    <center>
+        <div class="container">
+            <div id="searchBox" class="jumbotron shadow col-lg-6 col-sm-12">
+                <h2 class="text-center" style="font-family: 'akronim', cursive; cursor: pointer;">
+                   <i class="fa fa-sm fa-film" aria-hidden="true"></i> Movie Searcher <i class="fa fa-sm fa-film" aria-hidden="true"></i>
+                </h2>
+                <hr>
+
+                <form action="/movies" method="get" class="form">
+                    <div class="row " align="center">
+                        <div class="col-8">
+                            <input class="col form-control" type="text" name="search" placeholder="Movie Name" required>
+                        </div>
+                        <div class="col-4">
+                            <button class="col btn btn-info" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="searchedMovies" class="jumbotron" style="padding: 15px;">
+                <h3 align="left"><i class="fa fa-film" aria-hidden="true"></i> Movies - <%= searchQuery %></h3>
+                <hr>
+
+               <% data["results"].forEach((movie)=> { %>
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-md-3">
+                                <img  src='https://image.tmdb.org/t/p/w600_and_h900_bestv2<%=movie["poster_path"] %>' class="card-img">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="card-body">
+                                    <h3 class="card-title"><%= movie["title"] %></h3>
+                                    <hr>
+                                    <div class="card-text">Summary : <%= movie["overview"] %></div>
+                                    <hr>
+                                    <p class="card-text">Language: <%= movie["original_language"] %></p>
+                                    <p class="card-text">Released Date : <%= movie["release_date"] %></p>
+                                    <p class="card-text">Popularity : <%= movie["popularity"] %></p>
+                                    <p class="card-text">Total Votes : <%= movie["vote_count"] %></p>
+                                    <p class="card-text">Average Rating : <%= movie["vote_average"] %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+               <% }); %>
+
+                
+            </div>
+        </div>
+    </center>
+</body>
+</html>
